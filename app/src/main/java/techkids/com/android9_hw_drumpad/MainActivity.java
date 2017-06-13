@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
             for (ImageView imageView : imageViews) {
                 imageView.setImageResource(R.drawable.default_button);
             }
-            for (int i=0; i< statusList.size(); i++) {
+            for (int i = 0; i < statusList.size(); i++) {
                 statusList.set(i, false);
             }
             return false;
@@ -273,64 +273,64 @@ public class MainActivity extends AppCompatActivity {
                 if (isInside(event.getX(), event.getY(), imageView)) {
                     if (!statusList.get(i)) {
                         imageView.setImageResource(R.drawable.pressed_button);
-                        statusList.set(i,true);
-                        if(imageView.getTag().equals("iv_01")){
+                        statusList.set(i, true);
+                        if (imageView.getTag().equals("iv_01")) {
                             playSound01(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_02")){
+                        if (imageView.getTag().equals("iv_02")) {
                             playSound02(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_03")){
+                        if (imageView.getTag().equals("iv_03")) {
                             playSound03(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_04")){
+                        if (imageView.getTag().equals("iv_04")) {
                             playSound04(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_05")){
+                        if (imageView.getTag().equals("iv_05")) {
                             playSound05(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_06")){
+                        if (imageView.getTag().equals("iv_06")) {
                             playSound06(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_07")){
+                        if (imageView.getTag().equals("iv_07")) {
                             playSound07(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_08")){
+                        if (imageView.getTag().equals("iv_08")) {
                             playSound08(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_09")){
+                        if (imageView.getTag().equals("iv_09")) {
                             playSound09(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_10")){
+                        if (imageView.getTag().equals("iv_10")) {
                             playSound10(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_11")){
+                        if (imageView.getTag().equals("iv_11")) {
                             playSound11(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_12")){
+                        if (imageView.getTag().equals("iv_12")) {
                             playSound12(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_13")){
+                        if (imageView.getTag().equals("iv_13")) {
                             playSound13(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_14")){
+                        if (imageView.getTag().equals("iv_14")) {
                             playSound14(new View(getBaseContext()));
                             break;
                         }
-                        if(imageView.getTag().equals("iv_15")){
+                        if (imageView.getTag().equals("iv_15")) {
                             playSound15(new View(getBaseContext()));
                             break;
                         }

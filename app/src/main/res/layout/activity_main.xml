@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#000000"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context="techkids.com.android9_hw_drumpad.MainActivity">
@@ -14,168 +14,185 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/iv_01"
-            android:tag="iv_01"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_01" />
+
         <ImageView
             android:id="@+id/iv_02"
-            android:tag="iv_02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_02" />
+
         <ImageView
             android:id="@+id/iv_03"
-            android:tag="iv_03"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_03" />
+
         <ImageView
             android:id="@+id/iv_04"
-            android:tag="iv_04"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_04" />
+
         <ImageView
             android:id="@+id/iv_05"
-            android:tag="iv_05"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_05" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/iv_06"
-            android:tag="iv_06"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_06" />
+
         <ImageView
             android:id="@+id/iv_07"
-            android:tag="iv_07"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_07" />
+
         <ImageView
             android:id="@+id/iv_08"
-            android:tag="iv_08"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_08" />
+
         <ImageView
             android:id="@+id/iv_09"
-            android:tag="iv_09"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_09" />
+
         <ImageView
             android:id="@+id/iv_10"
-            android:tag="iv_10"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_10" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
+
         <ImageView
-        android:id="@+id/iv_11"
-        android:tag="iv_11"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:scaleType="fitXY"
-        android:src="@drawable/default_button"
-        android:padding="5dp"/>
+            android:id="@+id/iv_11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_button"
+            android:tag="iv_11" />
+
         <ImageView
             android:id="@+id/iv_12"
-            android:tag="iv_12"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_12" />
+
         <ImageView
             android:id="@+id/iv_13"
-            android:tag="iv_13"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_13" />
+
         <ImageView
             android:id="@+id/iv_14"
-            android:tag="iv_14"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_14" />
+
         <ImageView
             android:id="@+id/iv_15"
-            android:tag="iv_15"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:padding="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
-            android:padding="5dp"/>
+            android:tag="iv_15" />
     </LinearLayout>
 
 </LinearLayout>
