@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private int sound10;
     private int sound11;
     private int sound12;
+    private int sound13;
+    private int sound14;
+    private int sound15;
 
     public void playSound01(View view) {
         if (loaded) {
@@ -138,6 +141,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void playSound13(View view) {
+        if (loaded) {
+            float leftVolumn = volume;
+            float rightVolumn = volume;
+            int streamId = this.soundPool.play(this.sound13, leftVolumn, rightVolumn, 1, 0, 1f);
+        }
+    }
+
+    public void playSound14(View view) {
+        if (loaded) {
+            float leftVolumn = volume;
+            float rightVolumn = volume;
+            int streamId = this.soundPool.play(this.sound14, leftVolumn, rightVolumn, 1, 0, 1f);
+        }
+    }
+
+    public void playSound15(View view) {
+        if (loaded) {
+            float leftVolumn = volume;
+            float rightVolumn = volume;
+            int streamId = this.soundPool.play(this.sound15, leftVolumn, rightVolumn, 1, 0, 1f);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,6 +184,9 @@ public class MainActivity extends AppCompatActivity {
         imageViews.add((ImageView) findViewById(R.id.iv_10));
         imageViews.add((ImageView) findViewById(R.id.iv_11));
         imageViews.add((ImageView) findViewById(R.id.iv_12));
+        imageViews.add((ImageView) findViewById(R.id.iv_13));
+        imageViews.add((ImageView) findViewById(R.id.iv_14));
+        imageViews.add((ImageView) findViewById(R.id.iv_15));
 
         statusList = new ArrayList<>();
         for (ImageView imageView : imageViews) {
@@ -220,6 +250,9 @@ public class MainActivity extends AppCompatActivity {
         this.sound10 = this.soundPool.load(this, R.raw.sound10, 1);
         this.sound11 = this.soundPool.load(this, R.raw.sound11, 1);
         this.sound12 = this.soundPool.load(this, R.raw.sound12, 1);
+        this.sound13 = this.soundPool.load(this, R.raw.sound13, 1);
+        this.sound14 = this.soundPool.load(this, R.raw.sound14, 1);
+        this.sound15 = this.soundPool.load(this, R.raw.sound15, 1);
 
 
     }
@@ -287,6 +320,18 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if(imageView.getTag().equals("iv_12")){
                             playSound12(new View(getBaseContext()));
+                            break;
+                        }
+                        if(imageView.getTag().equals("iv_13")){
+                            playSound13(new View(getBaseContext()));
+                            break;
+                        }
+                        if(imageView.getTag().equals("iv_14")){
+                            playSound14(new View(getBaseContext()));
+                            break;
+                        }
+                        if(imageView.getTag().equals("iv_15")){
+                            playSound15(new View(getBaseContext()));
                             break;
                         }
                     }

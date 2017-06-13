@@ -44,12 +44,6 @@
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
             android:padding="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_04"
             android:tag="iv_04"
@@ -70,6 +64,12 @@
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
             android:padding="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_06"
             android:tag="iv_06"
@@ -80,12 +80,6 @@
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
             android:padding="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_07"
             android:tag="iv_07"
@@ -116,12 +110,6 @@
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
             android:padding="5dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
         <ImageView
             android:id="@+id/iv_10"
             android:tag="iv_10"
@@ -132,9 +120,25 @@
             android:scaleType="fitXY"
             android:src="@drawable/default_button"
             android:padding="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
         <ImageView
-            android:id="@+id/iv_11"
-            android:tag="iv_11"
+        android:id="@+id/iv_11"
+        android:tag="iv_11"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/default_button"
+        android:padding="5dp"/>
+        <ImageView
+            android:id="@+id/iv_12"
+            android:tag="iv_12"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -143,8 +147,28 @@
             android:src="@drawable/default_button"
             android:padding="5dp"/>
         <ImageView
-            android:id="@+id/iv_12"
-            android:tag="iv_12"
+            android:id="@+id/iv_13"
+            android:tag="iv_13"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_button"
+            android:padding="5dp"/>
+        <ImageView
+            android:id="@+id/iv_14"
+            android:tag="iv_14"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/default_button"
+            android:padding="5dp"/>
+        <ImageView
+            android:id="@+id/iv_15"
+            android:tag="iv_15"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
