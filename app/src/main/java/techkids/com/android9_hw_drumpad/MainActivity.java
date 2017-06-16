@@ -1,359 +1,209 @@
 package techkids.com.android9_hw_drumpad;
 
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.SoundPool;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import techkids.com.android9_hw_drumpad.soundPlayers.SoundPlayer;
+import techkids.com.android9_hw_drumpad.touches.Touch;
+import techkids.com.android9_hw_drumpad.touches.TouchAction;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<ImageView> imageViews;
-    List<Boolean> statusList;
 
+    private static final String TAG = MainActivity.class.toString();
+    List<ImageView> buttons;
+    ImageView switchButon;
+    List<TouchInfo> touchInfoList;
 
-    private SoundPool soundPool;
-    private AudioManager audioManager;
-    // Maximumn sound stream.
-    private static final int MAX_STREAMS = 5;
-    // Stream type.
-    private static final int streamType = AudioManager.STREAM_MUSIC;
-    private boolean loaded;
-    private float volume;
-
-
-    private int sound01;
-    private int sound02;
-    private int sound03;
-    private int sound04;
-    private int sound05;
-    private int sound06;
-    private int sound07;
-    private int sound08;
-    private int sound09;
-    private int sound10;
-    private int sound11;
-    private int sound12;
-    private int sound13;
-    private int sound14;
-    private int sound15;
-
-    public void playSound01(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound01, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound02(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound02, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound03(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound03, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound04(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound04, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound05(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound05, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound06(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound06, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound07(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound07, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound08(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound08, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound09(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound09, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound10(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound10, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound11(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound11, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound12(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound12, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound13(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound13, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound14(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound14, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
-    public void playSound15(View view) {
-        if (loaded) {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            int streamId = this.soundPool.play(this.sound15, leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
-
+    int isFirstSide = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        imageViews = new ArrayList<>();
-        imageViews.add((ImageView) findViewById(R.id.iv_01));
-        imageViews.add((ImageView) findViewById(R.id.iv_02));
-        imageViews.add((ImageView) findViewById(R.id.iv_03));
-        imageViews.add((ImageView) findViewById(R.id.iv_04));
-        imageViews.add((ImageView) findViewById(R.id.iv_05));
-        imageViews.add((ImageView) findViewById(R.id.iv_06));
-        imageViews.add((ImageView) findViewById(R.id.iv_07));
-        imageViews.add((ImageView) findViewById(R.id.iv_08));
-        imageViews.add((ImageView) findViewById(R.id.iv_09));
-        imageViews.add((ImageView) findViewById(R.id.iv_10));
-        imageViews.add((ImageView) findViewById(R.id.iv_11));
-        imageViews.add((ImageView) findViewById(R.id.iv_12));
-        imageViews.add((ImageView) findViewById(R.id.iv_13));
-        imageViews.add((ImageView) findViewById(R.id.iv_14));
-        imageViews.add((ImageView) findViewById(R.id.iv_15));
+        buttons = new ArrayList<>();
+        buttons.add((ImageView) findViewById(R.id.iv_01));
+        buttons.add((ImageView) findViewById(R.id.iv_02));
+        buttons.add((ImageView) findViewById(R.id.iv_03));
+        buttons.add((ImageView) findViewById(R.id.iv_04));
+        buttons.add((ImageView) findViewById(R.id.iv_05));
+        buttons.add((ImageView) findViewById(R.id.iv_06));
+        buttons.add((ImageView) findViewById(R.id.iv_07));
+        buttons.add((ImageView) findViewById(R.id.iv_08));
+        buttons.add((ImageView) findViewById(R.id.iv_09));
+        buttons.add((ImageView) findViewById(R.id.iv_10));
+        buttons.add((ImageView) findViewById(R.id.iv_11));
+        buttons.add((ImageView) findViewById(R.id.iv_12));
 
-        statusList = new ArrayList<>();
-        for (ImageView imageView : imageViews) {
-            statusList.add(false);
-        }
+        switchButon = (ImageView) findViewById(R.id.iv_00);
+        touchInfoList = new ArrayList<>();
 
-
-        // AudioManager audio settings for adjusting the volume
-        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-
-        // Current volumn Index of particular stream type.
-        float currentVolumeIndex = (float) audioManager.getStreamVolume(streamType);
-
-        // Get the maximum volume index for a particular stream type.
-        float maxVolumeIndex = (float) audioManager.getStreamMaxVolume(streamType);
-
-        // Volumn (0 --> 1)
-        this.volume = currentVolumeIndex / maxVolumeIndex;
-
-        // Suggests an audio stream whose volume should be changed by
-        // the hardware volume controls.
-        this.setVolumeControlStream(streamType);
-
-        // For Android SDK >= 21
-        if (Build.VERSION.SDK_INT >= 21) {
-
-            AudioAttributes audioAttrib = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-
-            SoundPool.Builder builder = new SoundPool.Builder();
-            builder.setAudioAttributes(audioAttrib).setMaxStreams(MAX_STREAMS);
-
-            this.soundPool = builder.build();
-        }
-        // for Android SDK < 21
-        else {
-            // SoundPool(int maxStreams, int streamType, int srcQuality)
-            this.soundPool = new SoundPool(MAX_STREAMS, AudioManager.STREAM_MUSIC, 0);
-        }
-
-        // When Sound Pool load complete.
-        this.soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                loaded = true;
-            }
-        });
-
-
-        this.sound01 = this.soundPool.load(this, R.raw.sound01, 1);
-        this.sound02 = this.soundPool.load(this, R.raw.sound02, 1);
-        this.sound03 = this.soundPool.load(this, R.raw.sound03, 1);
-        this.sound04 = this.soundPool.load(this, R.raw.sound04, 1);
-        this.sound05 = this.soundPool.load(this, R.raw.sound05, 1);
-        this.sound06 = this.soundPool.load(this, R.raw.sound06, 1);
-        this.sound07 = this.soundPool.load(this, R.raw.sound07, 1);
-        this.sound08 = this.soundPool.load(this, R.raw.sound08, 1);
-        this.sound09 = this.soundPool.load(this, R.raw.sound09, 1);
-        this.sound10 = this.soundPool.load(this, R.raw.sound10, 1);
-        this.sound11 = this.soundPool.load(this, R.raw.sound11, 1);
-        this.sound12 = this.soundPool.load(this, R.raw.sound12, 1);
-        this.sound13 = this.soundPool.load(this, R.raw.sound13, 1);
-        this.sound14 = this.soundPool.load(this, R.raw.sound14, 1);
-        this.sound15 = this.soundPool.load(this, R.raw.sound15, 1);
-
-
+        SoundPlayer.loadSounds(this);
     }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-            for (ImageView imageView : imageViews) {
-                imageView.setImageResource(R.drawable.default_button);
-            }
-            for (int i = 0; i < statusList.size(); i++) {
-                statusList.set(i, false);
-            }
+        List<Touch> touches = Touch.processEvent(event);
+
+        if (touches.size() == 0) {
             return false;
-        } else {
-            for (int i = 0; i < imageViews.size(); i++) {
-                ImageView imageView = imageViews.get(i);
-                if (isInside(event.getX(), event.getY(), imageView)) {
-                    if (!statusList.get(i)) {
-                        imageView.setImageResource(R.drawable.pressed_button);
-                        statusList.set(i, true);
-                        if (imageView.getTag().equals("iv_01")) {
-                            playSound01(new View(getBaseContext()));
-                            break;
+        }
+        Touch firstTouch = touches.get(0);
+        if (firstTouch.getTouchAction() == TouchAction.DOWN) {
+            ImageView pressedButton = findKeyByTouch(firstTouch);
+            if (pressedButton == null) {
+                return false;
+            }
+            if (!hasPressedButton(pressedButton)) {
+                touchInfoList.add(new TouchInfo(pressedButton, firstTouch));
+                if (pressedButton != switchButon) {
+                    String button = pressedButton.getTag().toString();
+                    SoundPlayer.playSound(button);
+                } else {
+                    if (isFirstSide == -1) {
+                        for (int indexButton = 1; indexButton <= buttons.size(); indexButton++) {
+                            if (indexButton < 10)
+                                buttons.get(indexButton - 1).setTag("iv_0" + indexButton + "_a");
+                            else
+                                buttons.get(indexButton - 1).setTag("iv_" + indexButton + "_a");
                         }
-                        if (imageView.getTag().equals("iv_02")) {
-                            playSound02(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_03")) {
-                            playSound03(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_04")) {
-                            playSound04(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_05")) {
-                            playSound05(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_06")) {
-                            playSound06(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_07")) {
-                            playSound07(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_08")) {
-                            playSound08(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_09")) {
-                            playSound09(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_10")) {
-                            playSound10(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_11")) {
-                            playSound11(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_12")) {
-                            playSound12(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_13")) {
-                            playSound13(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_14")) {
-                            playSound14(new View(getBaseContext()));
-                            break;
-                        }
-                        if (imageView.getTag().equals("iv_15")) {
-                            playSound15(new View(getBaseContext()));
-                            break;
+                    } else {
+                        for (int indexButton = 1; indexButton <= buttons.size(); indexButton++) {
+                            if (indexButton < 10)
+                                buttons.get(indexButton - 1).setTag("iv_0" + indexButton + "_b");
+                            else
+                                buttons.get(indexButton - 1).setTag("iv_" + indexButton + "_b");
                         }
                     }
-                } else {
-                    imageView.setImageResource(R.drawable.default_button);
-                    statusList.set(i, false);
+                    isFirstSide = -isFirstSide;
+                }
+            }
+        } else if (firstTouch.getTouchAction() == TouchAction.UP) {
+            ImageView releasedButton = findKeyByTouch(firstTouch);
+            if (releasedButton == null) {
+                return false;
+            }
+            Iterator<TouchInfo> touchInfoIterator = touchInfoList.iterator();
+            while (touchInfoIterator.hasNext()) {
+                TouchInfo touchInfo = touchInfoIterator.next();
+                if (touchInfo.touch.getTouchId() == firstTouch.getTouchId()) {
+                    touchInfoIterator.remove();
+                }
+            }
+        } else if (firstTouch.getTouchAction() == TouchAction.MOVE) {
+            for (Touch touch : touches) {
+                ImageView movingButton = findKeyByTouch(touch);
+                if (movingButton == null) {
+                    return false;
+                }
+                Iterator<TouchInfo> touchInfoIterator = touchInfoList.iterator();
+                while (touchInfoIterator.hasNext()) {
+                    TouchInfo touchInfo = touchInfoIterator.next();
+                    if (touchInfo.touch.equals(touch) && touchInfo.pressedKey != movingButton) {
+                        touchInfoIterator.remove();
+                        break;
+                    }
+                }
+                if (!hasPressedButton(movingButton)) {
+                    touchInfoList.add(new TouchInfo(movingButton, touch));
+                    if (movingButton != switchButon) {
+                        String button = movingButton.getTag().toString();
+                        SoundPlayer.playSound(button);
+                    }
                 }
             }
         }
 
+        updateKeyImage();
         return super.onTouchEvent(event);
     }
 
-    boolean isInside(float x, float y, View view) {
-        int[] location = new int[2];
-        view.getLocationOnScreen(location);
-
-        int left = location[0];
-        int top = location[1];
-        int right = left + view.getWidth();
-        int bottom = top + view.getHeight();
-
-        return (x < right && x > left && y < bottom && y > top);
+    void updateKeyImage() {
+        if (hasPressedButton(switchButon)) {
+            switchButon.setImageResource(R.drawable.pressed_switch_button);
+        } else {
+            switchButon.setImageResource(R.drawable.default_switch_button);
+        }
+        for (ImageView button : buttons) {
+            if (hasPressedButton(button)) {
+                if (button.getTag().toString().contains("01")
+                        || button.getTag().toString().contains("02")
+                        || button.getTag().toString().contains("03")) {
+                    button.setImageResource(R.drawable.pressed_button_1);
+                } else if (button.getTag().toString().contains("04")
+                        || button.getTag().toString().contains("05")
+                        || button.getTag().toString().contains("06")) {
+                    button.setImageResource(R.drawable.pressed_button_2);
+                } else if (button.getTag().toString().contains("07")
+                        || button.getTag().toString().contains("08")
+                        || button.getTag().toString().contains("09")) {
+                    button.setImageResource(R.drawable.pressed_button_3);
+                } else if (button.getTag().toString().contains("10")
+                        || button.getTag().toString().contains("11")
+                        || button.getTag().toString().contains("12")) {
+                    button.setImageResource(R.drawable.pressed_button_4);
+                }
+            } else {
+                if (button.getTag().toString().contains("01")
+                        || button.getTag().toString().contains("02")
+                        || button.getTag().toString().contains("03")) {
+                    button.setImageResource(R.drawable.default_button_1);
+                } else if (button.getTag().toString().contains("04")
+                        || button.getTag().toString().contains("05")
+                        || button.getTag().toString().contains("06")) {
+                    button.setImageResource(R.drawable.default_button_2);
+                } else if (button.getTag().toString().contains("07")
+                        || button.getTag().toString().contains("08")
+                        || button.getTag().toString().contains("09")) {
+                    button.setImageResource(R.drawable.default_button_3);
+                } else if (button.getTag().toString().contains("10")
+                        || button.getTag().toString().contains("11")
+                        || button.getTag().toString().contains("12")) {
+                    button.setImageResource(R.drawable.default_button_4);
+                }
+            }
+        }
     }
+
+    boolean hasPressedButton(ImageView pressedKey) {
+        for (TouchInfo touchInfo : touchInfoList) {
+            if (pressedKey.getTag().equals(touchInfo.pressedKey.getTag())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private ImageView findKeyByTouch(Touch touch) {
+        if (touch.checkHit(switchButon)) {
+            return switchButon;
+        }
+        for (ImageView button : buttons) {
+            if (touch.checkHit(button)) {
+                return button;
+            }
+        }
+        return null;
+    }
+
+    class TouchInfo {
+        public ImageView pressedKey;
+        public Touch touch;
+
+        public TouchInfo(ImageView pressedKey, Touch touch) {
+            this.pressedKey = pressedKey;
+            this.touch = touch;
+        }
+    }
+
 }
