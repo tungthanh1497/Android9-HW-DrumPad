@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.toString();
     List<ImageView> buttons;
-    List<Integer> streamIdList;
+//    List<Integer> streamIdList;
 
     ImageView switchButon;
     List<TouchInfo> touchInfoList;
@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         switchButon = (ImageView) findViewById(R.id.iv_00);
         touchInfoList = new ArrayList<>();
-        streamIdList = new ArrayList<>();
-        for (int i = 0; i < buttons.size(); i++) {
-            streamIdList.add(-1);
-        }
+//        streamIdList = new ArrayList<>();
+//        for (int i = 0; i < buttons.size(); i++) {
+//            streamIdList.add(-1);
+//        }
         SoundPlayer.loadSounds(this);
     }
 
@@ -73,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 touchInfoList.add(new TouchInfo(pressedButton, firstTouch));
                 if (pressedButton != switchButon) {
                     String button = pressedButton.getTag().toString();
-                    for (int i = 0; i < buttons.size(); i++) {
-                        if (buttons.get(i) == pressedButton) {
-                            streamIdList.set(i, SoundPlayer.playSound(button));
-                        }
-                    }
-//                    SoundPlayer.playSound(button);
+//                    for (int i = 0; i < buttons.size(); i++) {
+//                        if (buttons.get(i) == pressedButton) {
+//                            streamIdList.set(i, SoundPlayer.playSound(button));
+//                        }
+//                    }
+                    SoundPlayer.playSound(button);
                 } else {
                     if (isFirstSide == -1) {
                         for (int indexButton = 1; indexButton <= buttons.size(); indexButton++) {
@@ -107,11 +107,11 @@ public class MainActivity extends AppCompatActivity {
             while (touchInfoIterator.hasNext()) {
                 TouchInfo touchInfo = touchInfoIterator.next();
                 if (touchInfo.touch.getTouchId() == firstTouch.getTouchId()) {
-                    for (int i = 0; i < buttons.size(); i++) {
-                        if (buttons.get(i) == releasedButton) {
-                            SoundPlayer.soundPool.stop(streamIdList.get(i));
-                        }
-                    }
+//                    for (int i = 0; i < buttons.size(); i++) {
+//                        if (buttons.get(i) == releasedButton) {
+//                            SoundPlayer.soundPool.stop(streamIdList.get(i));
+//                        }
+//                    }
                     touchInfoIterator.remove();
                 }
             }
@@ -125,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
                 while (touchInfoIterator.hasNext()) {
                     TouchInfo touchInfo = touchInfoIterator.next();
                     if (touchInfo.touch.equals(touch) && touchInfo.pressedKey != movingButton) {
-                        for (int i = 0; i < buttons.size(); i++) {
-                            if (buttons.get(i) == touchInfo.pressedKey) {
-                                SoundPlayer.soundPool.stop(streamIdList.get(i));
-                            }
-                        }
+//                        for (int i = 0; i < buttons.size(); i++) {
+//                            if (buttons.get(i) == touchInfo.pressedKey) {
+//                                SoundPlayer.soundPool.stop(streamIdList.get(i));
+//                            }
+//                        }
                         touchInfoIterator.remove();
                         break;
                     }
@@ -139,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
                     if (movingButton != switchButon) {
                         String button = movingButton.getTag().toString();
 
-                        for (int i = 0; i < buttons.size(); i++) {
-                            if (buttons.get(i) == movingButton) {
-                                streamIdList.set(i, SoundPlayer.playSound(button));
-                            }
-                        }
+//                        for (int i = 0; i < buttons.size(); i++) {
+//                            if (buttons.get(i) == movingButton) {
+//                                streamIdList.set(i, SoundPlayer.playSound(button));
+//                            }
+//                        }
 
-//                        SoundPlayer.playSound(button);
+                        SoundPlayer.playSound(button);
                     }
                 }
             }
