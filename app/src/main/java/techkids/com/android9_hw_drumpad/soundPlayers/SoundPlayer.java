@@ -49,8 +49,13 @@ public class SoundPlayer {
         return id;
     }
 
-    public static void playSound(String note) {
+    public static int playSound(String note) {
         int soundID = noteMap.get(note);
-        soundPool.play(soundID, 1, 1, 1, 0, 1);
+        return soundPool.play(soundID, 1, 1, 1, 0, 1);
     }
+
+//    public static void playSound(String note) {
+//        int soundID = noteMap.get(note);
+//        soundPool.play(soundID, 1, 1, 1, 0, 1);
+//    }
 }
